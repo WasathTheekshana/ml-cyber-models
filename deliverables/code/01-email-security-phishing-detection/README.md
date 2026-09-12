@@ -23,6 +23,8 @@ There are **two notebooks** with identical modeling logic — pick whichever mat
 
 **Enron Spam Data** (Kaggle: [`marcelwiechmann/enron-spam-data`](https://www.kaggle.com/datasets/marcelwiechmann/enron-spam-data)). The dataset's `spam`/`ham` labels are used as a proxy for `phishing`/`legitimate` — this is a standard stand-in used in coursework and much of the phishing-detection literature, and is one of the datasets explicitly suggested by the assignment brief. The notebook discusses this choice and its limitations in the final "Discussion" section.
 
+**Data quality note — duplicate emails.** The raw CSV contains a large number of exact-duplicate emails (over half of its ~33.7k rows are copies of just a few hundred unique messages — some single automated/bulk emails appear 1,500–4,500 times). Both notebooks include a **"Remove Duplicate Emails"** step (Section 3) that deduplicates on email text *before* the train/test split. Without this step, duplicates leak across the split and models can score a suspicious, meaningless ~99.9%+ on every metric by memorizing duplicates rather than generalizing — this was confirmed by an earlier run of this pipeline before the fix was added. Don't remove this step when adapting the notebooks.
+
 ## Models implemented
 
 1. **Classic ML:** TF-IDF vectorization + Logistic Regression.
