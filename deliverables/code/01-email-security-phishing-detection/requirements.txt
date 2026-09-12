@@ -1,0 +1,10 @@
+kagglehub[pandas-datasets]
+pandas
+numpy
+scikit-learn
+nltk
+tensorflow
+matplotlib
+seaborn
+joblib
+jupyter
