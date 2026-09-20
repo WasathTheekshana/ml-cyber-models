@@ -53,7 +53,7 @@ Both are evaluated with accuracy, macro-averaged precision/recall/F1, a confusio
 
 **Important:** anything you upload in Colab only lives for the current runtime/session. Since this dataset is about 847MB combined, re-uploading it after a runtime restart/disconnect will take a while - that is expected with the browser-upload workflow this notebook uses.
 
-**Runtime expectations:** with about 2.8 million rows, loading and cleaning the data takes a few minutes, and training both models (Random Forest with 100 trees, CNN for up to 15 epochs with early stopping) takes longer than Section 1's notebook - budget at least 15-30 minutes for a full run on Colab's standard CPU runtime, faster with a GPU runtime for the CNN step.
+**Runtime expectations:** with about 2.8 million rows, loading and cleaning the data takes a few minutes, and training both models takes considerably longer than Section 1's notebook. In an actual test run on Colab's standard CPU runtime, the CNN alone took roughly 215-265 seconds per epoch across 14-15 epochs before early stopping triggered - about 50-65 minutes for CNN training alone, on top of data loading, cleaning, and Random Forest fitting. Budget at least an hour for a full run end to end on CPU; a GPU runtime (**Runtime -> Change runtime type**) will speed up the CNN step but not the Random Forest step, since scikit-learn does not use GPUs.
 
 ## Running locally instead
 
